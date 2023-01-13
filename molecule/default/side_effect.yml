@@ -24,7 +24,15 @@
           register: backup_cmd
 
       rescue:
+        - name: Check backup mode
+          command: "ls -ls /backup"
+          register: backup_mode
+          changed_when: false
 
+        - debug:
+            msg: "{{ backup_mode }}"
+
+      always:
         - name: Check backup mode
           command: "ls -ls /backup"
           register: backup_mode
