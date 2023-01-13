@@ -15,7 +15,7 @@
     - name: create backup dir
       file:
         state: directory
-        path: /backup
+        path: /backups
 
     - name: Check backup mode
       command: "ls -lsd /backup"
