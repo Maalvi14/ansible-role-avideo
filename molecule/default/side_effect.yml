@@ -17,9 +17,9 @@
         state: directory
         path: /backup
 
+    - name: take backup
       block:
-
-        - name: take backup
+        - name: run command
           command: "/usr/local/bin/avideo-backup"
           register: backup_cmd
 
