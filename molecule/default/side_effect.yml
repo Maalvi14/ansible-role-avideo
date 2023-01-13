@@ -15,7 +15,7 @@
     - name: create backup dir
       file:
         state: directory
-        path: /backups
+        path: /backup
 
     - name: take backup
       command: "/usr/local/bin/avideo-backup"
