@@ -17,29 +17,17 @@
         state: directory
         path: /backup
 
+    - name: Check backup mode
+      command: "ls -ls /backup"
+      register: backup_mode
+      changed_when: false
+
+    - debug:
+        msg: "{{ backup_mode }}"
+
     - name: take backup
-      block:
-        - name: run command
-          command: "/usr/local/bin/avideo-backup"
-          register: backup_cmd
-
-      rescue:
-        - name: Check backup mode
-          command: "ls -ls /backup"
-          register: backup_mode
-          changed_when: false
-
-        - debug:
-            msg: "{{ backup_mode }}"
-
-      always:
-        - name: Check backup mode
-          command: "ls -ls /backup"
-          register: backup_mode
-          changed_when: false
-
-        - debug:
-            msg: "{{ backup_mode }}"
+      command: "/usr/local/bin/avideo-backup"
+      register: backup_cmd
 
     - name: remove avideo folder
       file:
