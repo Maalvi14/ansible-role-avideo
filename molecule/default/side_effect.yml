@@ -17,14 +17,6 @@
         state: directory
         path: /backups
 
-    - name: Check backup mode
-      command: "ls -lsd /backup"
-      register: backup_mode
-      changed_when: false
-
-    - debug:
-        msg: "{{ backup_mode }}"
-
     - name: take backup
       command: "/usr/local/bin/avideo-backup"
       register: backup_cmd
