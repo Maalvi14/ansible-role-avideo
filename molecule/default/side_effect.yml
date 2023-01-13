@@ -18,7 +18,7 @@
         path: /backup
 
     - name: Check backup mode
-      command: "ls -ls /backup"
+      command: "ls -lsd /backup"
       register: backup_mode
       changed_when: false
 
