@@ -17,7 +17,7 @@
         state: directory
         path: /backup
 
-    - block:
+      block:
 
         - name: take backup
           command: "/usr/local/bin/avideo-backup"
